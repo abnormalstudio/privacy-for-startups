@@ -35,8 +35,8 @@ const Search: React.FunctionComponent<Props> = ({
       `}
     >
       <InstantSearch
-        appId="586KGQDU4K"
-        apiKey="b12bac4c5d83074ab66d634565d5ae29"
+        appId="8B3R1BS4EM"
+        apiKey="c787840874e32337ed14bb37de124a67"
         indexName="articles"
       >
         <div
