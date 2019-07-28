@@ -2,7 +2,7 @@ import React from "react";
 import Link from "gatsby-link";
 import { css } from "@emotion/core";
 import { Highlight } from "react-instantsearch-dom";
-import { parseISO, format } from "date-fns";
+import { parse, format } from "date-fns";
 import { Tags } from "$components";
 
 interface ArticleHitProps {
@@ -28,9 +28,7 @@ const ArticleHit: React.FunctionComponent<ArticleHitProps> = ({ hit }) => (
         margin-bottom: 0.75rem;
       `}
     >
-      {format(parseISO(hit.date), "MMM d, YYYY", {
-        awareOfUnicodeTokens: true
-      })}
+      {format(parse(hit.date), "MMM d, YYYY")}
     </div>
     <Tags tags={hit.tags.join(", ")} />
     <p>
