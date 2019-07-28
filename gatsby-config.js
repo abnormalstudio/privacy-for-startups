@@ -191,6 +191,7 @@ module.exports = {
             {
               allMdx(
                 sort: { fields: [frontmatter___date], order: DESC }
+                filter: { fields: { sourceInstanceName: { eq: "articles" } } }
                 limit: 1000
               ) {
                 edges {
