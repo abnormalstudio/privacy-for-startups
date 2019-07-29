@@ -115,7 +115,7 @@ const Article = ({ data }: Props) => {
           >
             <small>
               <em>
-                Nothing in this is article intended to be considered legal
+                Nothing in this article is intended to be considered legal
                 advice. All contents and opinions belong exclusively to the
                 author and do not reflect the opinions of her employer(s).
               </em>
