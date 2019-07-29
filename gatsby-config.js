@@ -83,7 +83,8 @@ module.exports = {
   siteMetadata: {
     siteUrl: "https://www.privacyforstartups.com",
     title: "Privacy For Startups",
-    description: "Privacy For Startups",
+    description:
+      "Marian writes about privacy, technology and contract law in the world of tech startups.",
     author: "Marian Serna"
   },
   plugins: [
@@ -123,8 +124,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: "privacyforstartups",
-        short_name: "privacy",
+        name: "Privacy For Startups",
+        short_name: "Startup Privacy",
         start_url: "/",
         background_color: "#663399",
         theme_color: "#663399",
