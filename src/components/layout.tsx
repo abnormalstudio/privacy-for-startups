@@ -141,6 +141,9 @@ const styles = {
     strong {
       font-weight: bold;
     }
+    em {
+      font-style: italic;
+    }
     small {
       font-size: 0.8rem;
     }

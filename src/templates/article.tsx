@@ -107,6 +107,21 @@ const Article = ({ data }: Props) => {
 
           <Tags tags={tags} />
 
+          <p
+            css={css`
+              line-height: 1.25rem;
+              margin: 0.5rem 0px;
+            `}
+          >
+            <small>
+              <em>
+                Nothing in this is article intended to be considered legal
+                advice. All contents and opinions belong exclusively to the
+                author and do not reflect the opinions of her employer(s).
+              </em>
+            </small>
+          </p>
+
           <div
             css={css`
               margin-top: 1rem;
