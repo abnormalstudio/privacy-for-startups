@@ -17,7 +17,8 @@ const TagHits = ({ hits }: any) => (
           <li
             key={hit.objectID}
             css={css`
-              margin-bottom: 1rem;
+              margin-bottom: 0.5rem;
+              margin-top: 0.5rem;
               width: 100%;
 
               @media (max-width: 768px) {

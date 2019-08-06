@@ -35,7 +35,7 @@ const ArticleRelated = ({ articles }: Props) => (
             display: flex;
             margin-bottom: 1.5rem;
             background-image: ${gradient(article.frontmatter.title)};
-            padding: 0.5rem;
+            padding: 1rem;
             color: white;
             a {
               color: white;

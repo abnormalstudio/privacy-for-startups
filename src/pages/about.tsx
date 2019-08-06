@@ -27,14 +27,6 @@ const About = () => (
 
         <Single>
           <H1Line>About Me</H1Line>
-          <div
-            css={css`
-              margin: 0 auto;
-              max-width: 200px;
-            `}
-          >
-            <Image fluid={data.file.childImageSharp.fluid} />
-          </div>
 
           <div
             css={css`
@@ -42,6 +34,22 @@ const About = () => (
               margin-bottom: 2rem;
             `}
           >
+            <div
+              css={css`
+                float: left;
+                width: 500px;
+                max-width: 100%;
+                margin-right: 1rem;
+                margin-bottom: 1rem;
+
+                @media (max-width: 768px) {
+                  margin: 0 auto;
+                  float: none;
+                }
+              `}
+            >
+              <Image fluid={data.file.childImageSharp.fluid} />
+            </div>
             <MDXRenderer>{data.about.body}</MDXRenderer>
           </div>
         </Single>

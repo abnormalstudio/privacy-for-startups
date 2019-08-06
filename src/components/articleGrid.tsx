@@ -65,6 +65,7 @@ const ArticleGrid = ({ articles }: Props) => (
             css={css`
               color: white;
               margin-top: 0px;
+              padding: 0.5rem;
             `}
           >
             {article.frontmatter.title}

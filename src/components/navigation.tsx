@@ -28,6 +28,12 @@ const Navigation = () => (
         a {
           color: rgba(0, 0, 0, 0.75);
           text-transform: uppercase;
+          padding: 0.25rem;
+          transition: 0.5s ease-in-out all;
+
+          &:hover {
+            background-color: #8ae1fc;
+          }
         }
       `}
     >

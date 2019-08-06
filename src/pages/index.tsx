@@ -59,7 +59,7 @@ const IndexPage = () => (
 
       return (
         <Layout>
-          <SEO title="Home" />
+          <SEO title="" />
           <ArticleRow articles={topArticles} />
           <Single>
             <ArticleGrid articles={restArticles} />

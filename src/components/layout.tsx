@@ -46,6 +46,10 @@ const Layout = ({ children }: Props) => {
               name="viewport"
               content="width=device-width, initial-scale=1"
             />
+            <link
+              href="https://fonts.googleapis.com/css?family=Noto+Serif+TC:300|Italiana|Zilla+Slab&display=swap"
+              rel="stylesheet"
+            />
           </Helmet>
           <Header
             siteTitle={data.site.siteMetadata.title}
@@ -82,19 +86,27 @@ const styles = {
     }
 
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-        Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+      font-family: "Noto Serif TC", serif;
       font-size: 18px;
       color: rgba(0, 0, 0, 0.75);
     }
 
     a {
       text-decoration: none;
-      color: #1e8257;
+      color: #00a0ff;
     }
 
     pre {
       font-size: 1rem;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-family: "Italiana", serif;
     }
 
     h1 {

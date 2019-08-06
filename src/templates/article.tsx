@@ -128,13 +128,23 @@ const Article = ({ data }: Props) => {
               margin-bottom: 2rem;
 
               ol {
-                margin-left: 1rem;
+                margin: 2rem 0px;
+                margin-left: 1.25rem;
                 list-style-type: decimal;
               }
 
               ol ol {
-                margin-left: 1.5rem;
                 list-style-type: lower-alpha;
+              }
+
+              ul {
+                list-style-type: circle;
+                margin: 2rem 0px;
+                margin-left: 1.25rem;
+
+                li {
+                  margin: 0.5rem 0px;
+                }
               }
             `}
           >

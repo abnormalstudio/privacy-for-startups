@@ -16,6 +16,7 @@ const Tags = ({ tags }: Props) => (
           to={`/tags/${tag}`}
           css={css`
             font-size: 0.85rem;
+            color: #00a0ff !important;
           `}
         >
           #{tag}
@@ -31,6 +32,7 @@ const TagList = styled("ul")`
 `;
 const TagItem = styled("li")`
   padding-right: 5px;
+  margin: 0.5rem 0px;
 `;
 
 export default Tags;

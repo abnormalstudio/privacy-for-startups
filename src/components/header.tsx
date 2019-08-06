@@ -2,6 +2,8 @@ import { Link } from "gatsby";
 import React from "react";
 import { css } from "@emotion/core";
 import SearchIcon from "../images/icons/search.svg";
+import LinkedInIcon from "../images/icons/linkedin.svg";
+import EmailIcon from "../images/icons/email.svg";
 
 interface Props {
   siteTitle: string;
@@ -40,7 +42,8 @@ const Header = ({ siteTitle, onSearchClick }: Props) => (
         css={css`
           font-size: 2.5rem;
           line-height: 2.5rem;
-          color: rgba(0, 0, 0, 0.75);
+          font-family: "Zilla Slab", serif;
+          color: #006a83;
           text-transform: uppercase;
           display: block;
 
@@ -64,6 +67,16 @@ const Header = ({ siteTitle, onSearchClick }: Props) => (
         }
       `}
     >
+      <a href="mailto:marianhalliday@gmail.com" title="Email" target="_blank">
+        <img src={EmailIcon} alt="Email" css={styles.icon} />
+      </a>
+      <a
+        href="https://www.linkedin.com/in/marian-serna/"
+        title="LinkedIn"
+        target="_blank"
+      >
+        <img src={LinkedInIcon} alt="LinkedIn" css={styles.icon} />
+      </a>
       <button
         css={css`
           background: none;
