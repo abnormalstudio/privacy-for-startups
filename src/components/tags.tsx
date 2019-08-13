@@ -10,7 +10,7 @@ interface Props {
 
 const Tags = ({ tags }: Props) => (
   <TagList>
-    {splitTags(tags).map(tag => (
+    {splitTags(tags).sort().map(tag => (
       <TagItem key={tag}>
         <Link
           to={`/tags/${tag}`}
