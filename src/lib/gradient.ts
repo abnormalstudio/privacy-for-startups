@@ -2,7 +2,6 @@ let i = 0;
 const gradients = [
   `radial-gradient( circle farthest-corner at 12.3% 19.3%,  rgba(85,88,218,1) 0%, rgba(95,209,249,1) 100.2% )`,
   `linear-gradient( 116.9deg,  rgba(232,10,116,1) -9.3%, rgba(244,79,79,1) 77.3% )`,
-  `linear-gradient(to right, #240b36, #c31432)`,
   `linear-gradient(to right, #f12711, #f5af19)`,
   `linear-gradient(to right, #00f260, #0575e6)`,
   `linear-gradient(to right, #ff9966, #ff5e62)`,
