@@ -67,7 +67,11 @@ const Header = ({ siteTitle, onSearchClick }: Props) => (
         }
       `}
     >
-      <a href="mailto:marianhalliday@gmail.com" title="Email" target="_blank">
+      <a
+        href="mailto:privacyforstartups@gmail.com"
+        title="Email"
+        target="_blank"
+      >
         <img src={EmailIcon} alt="Email" css={styles.icon} />
       </a>
       <a

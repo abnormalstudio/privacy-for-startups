@@ -28,7 +28,10 @@ interface INode {
 interface Props {
   data: {
     article: IArticle;
-    allMdx: {
+    relatedArticles: {
+      edges: INode[];
+    };
+    otherArticles: {
       edges: INode[];
     };
   };
@@ -55,6 +58,11 @@ const Article = ({ data }: Props) => {
       image: "https://abnormalstudio.s3.amazonaws.com/marian-social.jpg"
     }
   );
+
+  const asideArticles =
+    data.relatedArticles.edges.length > 0
+      ? data.relatedArticles
+      : data.otherArticles;
 
   return (
     <Layout>
@@ -137,6 +145,10 @@ const Article = ({ data }: Props) => {
                 list-style-type: lower-alpha;
               }
 
+              ol ol ol {
+                list-style-type: lower-roman;
+              }
+
               ul {
                 list-style-type: circle;
                 margin: 2rem 0px;
@@ -152,9 +164,7 @@ const Article = ({ data }: Props) => {
           </div>
         </article>
 
-        <ArticleAside
-          articles={data.allMdx ? data.allMdx.edges.map(edge => edge.node) : []}
-        />
+        <ArticleAside articles={asideArticles.edges.map(edge => edge.node)} />
       </div>
     </Layout>
   );
@@ -175,8 +185,36 @@ export const pageQuery = graphql`
       }
       body
     }
-    allMdx(
-      filter: { id: { ne: $id }, frontmatter: { tags: { regex: $tagRegex } } }
+    relatedArticles: allMdx(
+      filter: {
+        id: { ne: $id }
+        frontmatter: { tags: { regex: $tagRegex } }
+        fields: { sourceInstanceName: { eq: "articles" } }
+      }
+      sort: { fields: [frontmatter___date], order: DESC }
+      limit: 4
+    ) {
+      edges {
+        node {
+          id
+          timeToRead
+          excerpt
+          frontmatter {
+            slug
+            title
+            tags
+            date(formatString: "MMM D, YYYY", locale: "en")
+            updated(formatString: "MMM D, YYYY", locale: "en")
+          }
+          body
+        }
+      }
+    }
+    otherArticles: allMdx(
+      filter: {
+        id: { ne: $id }
+        fields: { sourceInstanceName: { eq: "articles" } }
+      }
       sort: { fields: [frontmatter___date], order: DESC }
       limit: 4
     ) {
