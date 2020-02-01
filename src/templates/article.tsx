@@ -105,6 +105,7 @@ const Article = ({ data }: Props) => {
 
           @media (max-width: 900px) {
             position: static;
+            padding: 0.5rem;
           }
         `}
       >
