@@ -71,7 +71,7 @@ const ArticleTile = ({ title, slug, tags }: Props) => {
               line-height: 2.8rem;
 
               @media (max-width: 768px) {
-                line-height: 2.6rem;
+                line-height: 2.4rem;
               }
             `}
           >
