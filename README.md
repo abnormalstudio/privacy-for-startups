@@ -1,3 +1,3 @@
-# Privacy For Startups
+# Marian Serna
 
-Code for [https://www.privacyforstartups.com](https://www.privacyforstartups.com)
+Code for [https://www.marianserna.com](https://www.marianserna.com)

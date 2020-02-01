@@ -81,8 +81,8 @@ const queries = [
 
 module.exports = {
   siteMetadata: {
-    siteUrl: "https://www.privacyforstartups.com",
-    title: "Privacy For Startups",
+    siteUrl: "https://www.marianserna.com",
+    title: "Marian Serna",
     description:
       "Marian writes about privacy, technology and contract law in the world of tech startups.",
     author: "Marian Serna"
@@ -124,8 +124,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: "Privacy For Startups",
-        short_name: "Startup Privacy",
+        name: "Marian Serna",
+        short_name: "Marian Serna",
         start_url: "/",
         background_color: "#663399",
         theme_color: "#663399",
@@ -139,7 +139,7 @@ module.exports = {
         trackingId: "UA-56612129-5",
         anonymize: true,
         respectDNT: true,
-        cookieDomain: "privacyforstartups.com"
+        cookieDomain: "marianserna.com"
       }
     },
     "gatsby-plugin-typescript",
@@ -212,7 +212,7 @@ module.exports = {
             }
           `,
             output: "/rss.xml",
-            title: "Privacy For Startups RSS Feed"
+            title: "Marian Serna RSS Feed"
           }
         ]
       }

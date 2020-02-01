@@ -1,0 +1,5 @@
+# Redirect domain aliases to primary domain
+https://www.privacyforstartups.com/* https://www.marianserna.com/:splat 301!
+
+# Optional: Redirect default Netlify subdomain to primary domain
+https://elegant-mahavira-fc2a79.netlify.com/* https://www.marianserna.com/:splat 301!
