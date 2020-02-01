@@ -69,6 +69,10 @@ const ArticleTile = ({ title, slug, tags }: Props) => {
               box-decoration-break: clone;
               -webkit-box-decoration-break: clone;
               line-height: 2.8rem;
+
+              @media (max-width: 768px) {
+                line-height: 2.5rem;
+              }
             `}
           >
             {title}
