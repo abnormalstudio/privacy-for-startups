@@ -1,20 +1,6 @@
 import { graphql, StaticQuery } from "gatsby";
 import React from "react";
-import { css } from "@emotion/core";
-import { Layout, SEO, ArticleTile, ArticleGrid, Single } from "$components";
-
-interface IArticle {
-  id: string;
-  timeToRead: number;
-  excerpt: string;
-  frontmatter: {
-    title: string;
-    slug: string;
-    date: string;
-    tags: string;
-    banner: any;
-  };
-}
+import { Layout, SEO, ArticleRow } from "$components";
 
 interface IArticleNode {
   node: IArticle;
@@ -63,31 +49,6 @@ const IndexPage = () => (
       );
     }}
   />
-);
-
-interface ArticleRowProps {
-  articles: IArticle[];
-}
-
-const ArticleRow = ({ articles }: ArticleRowProps) => (
-  <div
-    css={css`
-      display: flex;
-      justify-content: space-around;
-      flex-wrap: wrap;
-    `}
-  >
-    {articles.map(({ id, timeToRead, frontmatter }) => (
-      <ArticleTile
-        key={id}
-        timeToRead={timeToRead}
-        title={frontmatter.title}
-        slug={frontmatter.slug}
-        tags={frontmatter.tags}
-        date={frontmatter.date}
-      />
-    ))}
-  </div>
 );
 
 export default IndexPage;

@@ -16,7 +16,7 @@ const Header = ({ siteTitle, onSearchClick }: Props) => (
       padding: 0.5rem 0;
       display: flex;
       flex-wrap: wrap;
-      box-shadow: 0 6px 6px -5px rgba(198, 40, 40, 0.75);
+      box-shadow: 0 6px 6px -5px rgb(102, 51, 204);
     `}
   >
     <div

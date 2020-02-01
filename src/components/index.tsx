@@ -1,7 +1,7 @@
 export { default as ArticleAside } from "./articleAside";
-export { default as ArticleGrid } from "./articleGrid";
 export { default as ArticleTile } from "./articleTile";
 export { default as Header } from "./header";
+export { default as ArticleRow } from "./articleRow";
 export {
   H1Line,
   H2Line,

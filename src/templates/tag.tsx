@@ -2,27 +2,16 @@ import { graphql } from "gatsby";
 import React from "react";
 import Link from "gatsby-link";
 import { css } from "@emotion/core";
-import { Layout, SEO, ArticleGrid, H1Line, Single } from "$components";
+import { Layout, SEO, ArticleRow, H1Line, Single } from "$components";
 
-interface ArticleNode {
-  node: {
-    id: string;
-    timeToRead: number;
-    excerpt: string;
-    frontmatter: {
-      slug: string;
-      title: string;
-      tags: string;
-      date: string;
-      updated: string;
-    };
-  };
+interface IArticleNode {
+  node: IArticle;
 }
 
 interface Props {
   data: {
     allMdx: {
-      edges: ArticleNode[];
+      edges: IArticleNode[];
     };
   };
   pageContext: {
@@ -37,25 +26,23 @@ const Tag = ({ data, pageContext: { page, tag, prevUrl, nextUrl } }: Props) => {
   return (
     <Layout>
       <SEO title={`#${tag} page ${page}`} />
-      <Single>
-        <H1Line>
-          #{tag} {page > 1 && <span>page {page}</span>}
-        </H1Line>
+      <H1Line>
+        #{tag} {page > 1 && <span>page {page}</span>}
+      </H1Line>
 
-        <ArticleGrid articles={data.allMdx.edges.map(edge => edge.node)} />
+      <ArticleRow articles={data.allMdx.edges.map(edge => edge.node)} />
 
-        {prevUrl || nextUrl ? (
-          <div
-            css={css`
-              text-align: center;
-            `}
-          >
-            {prevUrl && <Link to={prevUrl}>Prev</Link>}
-            {prevUrl && nextUrl && " "}
-            {nextUrl && <Link to={nextUrl}>Next</Link>}
-          </div>
-        ) : null}
-      </Single>
+      {prevUrl || nextUrl ? (
+        <div
+          css={css`
+            text-align: center;
+          `}
+        >
+          {prevUrl && <Link to={prevUrl}>Prev</Link>}
+          {prevUrl && nextUrl && " "}
+          {nextUrl && <Link to={nextUrl}>Next</Link>}
+        </div>
+      ) : null}
     </Layout>
   );
 };

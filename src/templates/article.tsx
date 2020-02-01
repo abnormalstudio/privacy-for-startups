@@ -98,9 +98,9 @@ const Article = ({ data }: Props) => {
           z-index: 10;
           position: absolute;
           top: 50px;
-          right: 50px;
+          right: 10%;
           bottom: 50px;
-          left: 50px;
+          left: 10%;
           overflow-y: scroll;
 
           @media (max-width: 900px) {

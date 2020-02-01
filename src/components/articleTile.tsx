@@ -14,21 +14,44 @@ interface Props {
 const ArticleTile = ({ title, slug, tags }: Props) => {
   return (
     <div css={styles.outer}>
+      <div
+        css={css`
+          align-self: center;
+          display: flex;
+          flex-direction: column;
+          height: 80%;
+          margin-top: 7.5%;
+          -webkit-box-pack: start;
+          justify-content: flex-start;
+          width: 5%;
+          margin-left: -5%;
+          background: rgb(102, 51, 204);
+        `}
+      >
+        {splitTags(tags)
+          .slice(0, 2)
+          .map(tag => (
+            <span
+              key={tag}
+              css={css`
+                align-self: center;
+                color: white;
+                font-size: 9px;
+                line-height: 1;
+                margin-top: 10px;
+                text-transform: uppercase;
+                transform: rotate(180deg);
+                writing-mode: tb-rl;
+                text-decoration: none;
+              `}
+            >
+              <Link to={`/tags/${tag}`}>#{tag}</Link>{" "}
+            </span>
+          ))}
+      </div>
+
       <div css={styles.image} style={{ backgroundImage: gradient(title) }} />
       <div css={styles.content}>
-        {/* <div
-          css={css`
-            font-size: 0.75rem;
-          `}
-        >
-          {splitTags(tags)
-            .slice(0, 3)
-            .map(tag => (
-              <span key={tag}>
-                <Link to={`/tags/${tag}`}>#{tag}</Link>{" "}
-              </span>
-            ))}
-        </div> */}
         <Link
           to={`/${slug}`}
           css={css`
@@ -46,13 +69,6 @@ const ArticleTile = ({ title, slug, tags }: Props) => {
               box-decoration-break: clone;
               -webkit-box-decoration-break: clone;
               line-height: 2.8rem;
-
-              /* @media (max-width: 1024px) {
-                font-size: 1rem;
-                line-height: 1.25rem;
-                padding-bottom: 0.5rem;
-                margin: 0.5rem 0px;
-              } */
             `}
           >
             {title}
@@ -101,6 +117,8 @@ const styles = {
     left: 0;
     right: 0;
     bottom: 0;
+    /* background-image: url("https://images.unsplash.com/photo-1580565066381-e90387862d99?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80");
+    background-size: cover; */
   `,
   content: css`
     position: absolute;
