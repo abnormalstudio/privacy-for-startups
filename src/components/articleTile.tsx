@@ -16,7 +16,7 @@ const ArticleTile = ({ title, slug, tags }: Props) => {
     <div css={styles.outer}>
       <div css={styles.image} style={{ backgroundImage: gradient(title) }} />
       <div css={styles.content}>
-        <div
+        {/* <div
           css={css`
             font-size: 0.75rem;
           `}
@@ -28,32 +28,35 @@ const ArticleTile = ({ title, slug, tags }: Props) => {
                 <Link to={`/tags/${tag}`}>#{tag}</Link>{" "}
               </span>
             ))}
-        </div>
-        <Link to={`/${slug}`}>
+        </div> */}
+        <Link
+          to={`/${slug}`}
+          css={css`
+            display: block;
+            text-align: left;
+            margin-left: 15%;
+            margin-right: -5%;
+          `}
+        >
           <h3
             css={css`
-              padding: 0px 1rem 0.75rem 1rem;
+              padding: 0.5rem;
+              background: #000;
+              display: inline;
+              box-decoration-break: clone;
+              -webkit-box-decoration-break: clone;
+              line-height: 2.8rem;
 
-              @media (max-width: 1024px) {
+              /* @media (max-width: 1024px) {
                 font-size: 1rem;
                 line-height: 1.25rem;
                 padding-bottom: 0.5rem;
                 margin: 0.5rem 0px;
-              }
+              } */
             `}
           >
             {title}
           </h3>
-        </Link>
-        <Link
-          to={`/${slug}`}
-          css={css`
-            font-size: 0.75rem;
-            border: 2px solid rgba(255, 255, 255, 0.9);
-            padding: 0.5rem;
-          `}
-        >
-          READ MORE
         </Link>
       </div>
     </div>
@@ -63,8 +66,9 @@ const ArticleTile = ({ title, slug, tags }: Props) => {
 const styles = {
   outer: css`
     position: relative;
-    width: 25vw;
-    height: 25vw;
+    width: calc(30% - 2rem);
+    height: 250px;
+    margin-bottom: 2rem;
     color: rgba(255, 255, 255, 0.9);
 
     ::before {
@@ -79,14 +83,12 @@ const styles = {
       z-index: 1;
     }
 
-    @media (max-width: 768px) {
-      width: 50vw;
-      height: 50vw;
+    @media (max-width: 1100px) {
+      width: calc(45% - 2rem);
     }
 
-    @media (max-width: 500px) {
-      width: calc(100vw);
-      height: calc(50vw);
+    @media (max-width: 768px) {
+      width: calc(90% - 2rem);
     }
 
     a {

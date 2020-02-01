@@ -53,7 +53,7 @@ const Article = ({ data }: Props) => {
     "https://leighhalliday-og-image-git-master.leighhalliday.now.sh/og.jpg",
     {
       author: "Marian Serna",
-      website: "privacyforstartups.com",
+      website: "marianserna.com",
       title,
       image: "https://abnormalstudio.s3.amazonaws.com/marian-social.jpg"
     }
@@ -71,13 +71,41 @@ const Article = ({ data }: Props) => {
         <meta property="og:image" content={ogImageUrl} />
         <meta name="twitter:image:src" content={ogImageUrl} />
       </Helmet>
-      <div
+      <a
+        href="/"
         css={css`
+          display: block;
+          position: fixed;
+          top: 0;
+          left: 0;
+          bottom: 0;
+          right: 0;
+          background: rgba(0, 0, 0, 0.5);
+          backdrop-filter: blur(1px);
+          z-index: 1;
+
+          @media (max-width: 900px) {
+            display: none;
+          }
+        `}
+      ></a>
+      <main
+        css={css`
+          background: #fff;
           display: flex;
           flex-wrap: wrap;
-          max-width: 1200px;
-          margin: 2rem auto;
-          padding: 15px;
+          padding: 2rem;
+          z-index: 10;
+          position: absolute;
+          top: 50px;
+          right: 50px;
+          bottom: 50px;
+          left: 50px;
+          overflow-y: scroll;
+
+          @media (max-width: 900px) {
+            position: static;
+          }
         `}
       >
         <article
@@ -165,7 +193,7 @@ const Article = ({ data }: Props) => {
         </article>
 
         <ArticleAside articles={asideArticles.edges.map(edge => edge.node)} />
-      </div>
+      </main>
     </Layout>
   );
 };

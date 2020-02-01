@@ -64,7 +64,16 @@ const Layout = ({ children }: Props) => {
               setShowSearch(false);
             }}
           />
-          <div>
+          <div
+            css={css`
+              margin-left: 200px;
+              padding: 2rem 1rem;
+
+              @media (max-width: 900px) {
+                margin-left: 0px;
+              }
+            `}
+          >
             <MDXProvider components={mdxComponents}>{children}</MDXProvider>
           </div>
         </>

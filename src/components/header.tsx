@@ -13,10 +13,10 @@ interface Props {
 const Header = ({ siteTitle, onSearchClick }: Props) => (
   <div
     css={css`
-      max-width: 1200px;
-      margin: 2rem auto;
+      padding: 0.5rem 0;
       display: flex;
       flex-wrap: wrap;
+      box-shadow: 0 6px 6px -5px rgba(198, 40, 40, 0.75);
     `}
   >
     <div

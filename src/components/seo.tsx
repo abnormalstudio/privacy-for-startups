@@ -27,9 +27,7 @@ function SEO({ description, lang, meta, keywords, title }: Props) {
             htmlAttributes={{
               lang
             }}
-            title={[title, "Privacy For Startups"]
-              .filter(str => str)
-              .join(" | ")}
+            title={[title, "Marian Serna"].filter(str => str).join(" | ")}
             titleTemplate={`%s`}
             meta={[
               {

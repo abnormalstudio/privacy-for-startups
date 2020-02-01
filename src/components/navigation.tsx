@@ -3,18 +3,31 @@ import React from "react";
 import { css } from "@emotion/core";
 
 const Navigation = () => (
-  <nav>
+  <nav
+    css={css`
+      position: fixed;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      width: 200px;
+      background-color: #000;
+
+      @media (max-width: 900px) {
+        position: static;
+        width: 100%;
+      }
+    `}
+  >
     <ul
       css={css`
         display: flex;
         justify-content: center;
-        margin: 0 auto;
-        border-top: 1px solid rgba(0, 0, 0, 0.25);
-        padding: 1rem;
-        width: 100%;
+        flex-wrap: wrap;
+        position: absolute;
+        bottom: 0;
 
-        @media (max-width: 768px) {
-          padding: 1rem 0.5rem;
+        @media (max-width: 900px) {
+          position: static;
         }
 
         li {
@@ -26,7 +39,7 @@ const Navigation = () => (
         }
 
         a {
-          color: rgba(0, 0, 0, 0.75);
+          color: #fff;
           text-transform: uppercase;
           padding: 0.25rem;
           transition: 0.5s ease-in-out all;

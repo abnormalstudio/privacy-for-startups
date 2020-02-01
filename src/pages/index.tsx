@@ -1,6 +1,6 @@
 import { graphql, StaticQuery } from "gatsby";
 import React from "react";
-import styled from "@emotion/styled";
+import { css } from "@emotion/core";
 import { Layout, SEO, ArticleTile, ArticleGrid, Single } from "$components";
 
 interface IArticle {
@@ -54,16 +54,11 @@ const IndexPage = () => (
     `}
     render={(data: IndexPageProps) => {
       const articles = data.allMdx.edges.map(edge => edge.node);
-      const topArticles = articles.slice(0, 4);
-      const restArticles = articles.slice(4);
 
       return (
         <Layout>
           <SEO title="" />
-          <ArticleRow articles={topArticles} />
-          <Single>
-            <ArticleGrid articles={restArticles} />
-          </Single>
+          <ArticleRow articles={articles} />
         </Layout>
       );
     }}
@@ -75,7 +70,13 @@ interface ArticleRowProps {
 }
 
 const ArticleRow = ({ articles }: ArticleRowProps) => (
-  <ArticleRowDiv>
+  <div
+    css={css`
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+    `}
+  >
     {articles.map(({ id, timeToRead, frontmatter }) => (
       <ArticleTile
         key={id}
@@ -86,13 +87,7 @@ const ArticleRow = ({ articles }: ArticleRowProps) => (
         date={frontmatter.date}
       />
     ))}
-  </ArticleRowDiv>
+  </div>
 );
-
-const ArticleRowDiv = styled.div`
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
-`;
 
 export default IndexPage;
