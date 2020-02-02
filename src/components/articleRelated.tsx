@@ -2,22 +2,9 @@ import React from "react";
 import { css } from "@emotion/core";
 import Link from "gatsby-link";
 import { H3Line } from "$components";
-import { gradient } from "$lib";
-
-interface Article {
-  id: string;
-  timeToRead: number;
-  excerpt: string;
-  frontmatter: {
-    title: string;
-    slug: string;
-    date: string;
-    tags: string;
-  };
-}
 
 interface Props {
-  articles: Article[];
+  articles: IArticle[];
 }
 
 const ArticleRelated = ({ articles }: Props) => (
@@ -28,43 +15,68 @@ const ArticleRelated = ({ articles }: Props) => (
         margin-bottom: 2rem;
       `}
     >
-      {articles.map(article => (
-        <li
-          key={article.id}
-          css={css`
-            display: flex;
-            margin-bottom: 1.5rem;
-            background-image: ${gradient(article.frontmatter.title)};
-            padding: 1rem;
-            color: white;
-            a {
+      {articles.map(article => {
+        const thumbUrl = article.frontmatter.thumb.childImageSharp.fixed.srcSet
+          .split("\n")[2]
+          .split(" ")[0];
+
+        return (
+          <li
+            key={article.id}
+            css={css`
+              display: flex;
+              margin-bottom: 1.5rem;
+              background-size: cover;
+              background-position: center center;
+              padding: 1rem;
               color: white;
-            }
-          `}
-        >
-          <Link
-            to={`/${article.frontmatter.slug}`}
-            title={article.frontmatter.title}
+              a {
+                color: white;
+              }
+            `}
+            style={{ backgroundImage: `url(${thumbUrl})` }}
           >
-            <h4
-              css={css`
-                margin: 0px;
-                margin-bottom: 0.25rem;
-              `}
+            <Link
+              to={`/${article.frontmatter.slug}`}
+              title={article.frontmatter.title}
             >
-              {article.frontmatter.title}
-            </h4>
-            <div
-              css={css`
-                text-transform: uppercase;
-                font-size: 0.75rem;
-              `}
-            >
-              {article.frontmatter.date}
-            </div>
-          </Link>
-        </li>
-      ))}
+              <h4
+                css={css`
+                  background: #000;
+                  display: inline;
+                  box-decoration-break: clone;
+                  -webkit-box-decoration-break: clone;
+                  line-height: 2rem;
+                  padding: 0.25rem;
+
+                  @media (max-width: 768px) {
+                    line-height: 2rem;
+                    padding: 0.5rem;
+                  }
+                `}
+              >
+                {article.frontmatter.title}
+              </h4>
+              <div
+                css={css`
+                  margin-top: 0.5rem;
+                `}
+              >
+                <span
+                  css={css`
+                    text-transform: uppercase;
+                    font-size: 0.75rem;
+                    background: #000;
+                    padding: 0.25rem;
+                  `}
+                >
+                  {article.frontmatter.date}
+                </span>
+              </div>
+            </Link>
+          </li>
+        );
+      })}
     </ul>
   </>
 );
