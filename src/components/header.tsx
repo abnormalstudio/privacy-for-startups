@@ -14,14 +14,23 @@ const Header = ({ siteTitle, onSearchClick }: Props) => (
   <div
     css={css`
       padding: 0.5rem 0;
+      padding-left: 200px;
       display: flex;
       flex-wrap: wrap;
+      border-bottom: 2px solid grey;
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15), 0 3px 6px rgba(0, 0, 0, 0.15);
+
+      @media (max-width: 900px) {
+        box-shadow: none;
+        border-bottom: none;
+        padding-left: 0px;
+      }
     `}
   >
     <div
       css={css`
         width: 20%;
-        @media (max-width: 1024px) {
+        @media (max-width: 900px) {
           display: none;
         }
       `}
@@ -31,7 +40,7 @@ const Header = ({ siteTitle, onSearchClick }: Props) => (
         width: 60%;
         text-align: center;
 
-        @media (max-width: 1024px) {
+        @media (max-width: 900px) {
           width: 100%;
         }
       `}
@@ -39,11 +48,10 @@ const Header = ({ siteTitle, onSearchClick }: Props) => (
       <Link
         to="/"
         css={css`
-          font-size: 2.5rem;
+          font-size: 2.8rem;
           line-height: 2.5rem;
-          font-family: "Zilla Slab", serif;
-          color: #006a83;
-          text-transform: uppercase;
+          color: #3d3d3b;
+          font-family: "Suranna", serif;
           display: block;
 
           @media (max-width: 768px) {
@@ -61,7 +69,7 @@ const Header = ({ siteTitle, onSearchClick }: Props) => (
         justify-content: center;
         align-items: center;
 
-        @media (max-width: 1024px) {
+        @media (max-width: 900px) {
           width: 100%;
         }
       `}

@@ -32,25 +32,44 @@ const About = () => (
             css={css`
               margin-top: 2rem;
               margin-bottom: 2rem;
+              display: flex;
+              flex-wrap: wrap;
+              padding: 1rem;
             `}
           >
             <div
               css={css`
-                float: left;
-                width: 500px;
+                width: 50%;
                 max-width: 100%;
-                margin-right: 1rem;
                 margin-bottom: 1rem;
+                padding-right: 1rem;
 
                 @media (max-width: 768px) {
-                  margin: 0 auto;
-                  float: none;
+                  width: 100%;
+                  padding-right: 0px;
                 }
               `}
             >
               <Image fluid={data.file.childImageSharp.fluid} />
             </div>
-            <MDXRenderer>{data.about.body}</MDXRenderer>
+            <div
+              css={css`
+                width: 50%;
+
+                @media (max-width: 768px) {
+                  width: 100%;
+                }
+              `}
+            >
+              <div
+                css={css`
+                  max-width: 400px;
+                  margin: 0 auto;
+                `}
+              >
+                <MDXRenderer>{data.about.body}</MDXRenderer>
+              </div>
+            </div>
           </div>
         </Single>
       </Layout>

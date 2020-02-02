@@ -58,7 +58,7 @@ const Layout = ({ children, isArticlePage }: Props) => {
               content="width=device-width, initial-scale=1"
             />
             <link
-              href="https://fonts.googleapis.com/css?family=Noto+Serif+TC:300|Italiana|Zilla+Slab&display=swap"
+              href="https://fonts.googleapis.com/css?family=Noto+Serif+TC:300|Cabin|Suranna&display=swap"
               rel="stylesheet"
             />
           </Helmet>
@@ -113,7 +113,7 @@ const styles = {
 
     a {
       text-decoration: none;
-      color: #00a0ff;
+      color: rgb(102, 51, 204);
     }
 
     pre {
@@ -126,7 +126,7 @@ const styles = {
     h4,
     h5,
     h6 {
-      font-family: "Italiana", serif;
+      font-family: "Cabin", sans-serif;
     }
 
     h1 {

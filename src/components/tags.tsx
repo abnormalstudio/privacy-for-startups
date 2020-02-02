@@ -10,19 +10,21 @@ interface Props {
 
 const Tags = ({ tags }: Props) => (
   <TagList>
-    {splitTags(tags).sort().map(tag => (
-      <TagItem key={tag}>
-        <Link
-          to={`/tags/${tag}`}
-          css={css`
-            font-size: 0.85rem;
-            color: #00a0ff !important;
-          `}
-        >
-          #{tag}
-        </Link>
-      </TagItem>
-    ))}
+    {splitTags(tags)
+      .sort()
+      .map(tag => (
+        <TagItem key={tag}>
+          <Link
+            to={`/tags/${tag}`}
+            css={css`
+              font-size: 0.85rem;
+              font-weight: bold;
+            `}
+          >
+            #{tag}
+          </Link>
+        </TagItem>
+      ))}
   </TagList>
 );
 

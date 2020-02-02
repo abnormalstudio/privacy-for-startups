@@ -10,7 +10,7 @@ const Navigation = () => (
       left: 0;
       bottom: 0;
       width: 200px;
-      background-color: #000;
+      background-color: #252c41;
 
       @media (max-width: 900px) {
         position: static;
@@ -24,28 +24,33 @@ const Navigation = () => (
         justify-content: center;
         flex-wrap: wrap;
         position: absolute;
-        bottom: 0;
+        bottom: 20vh;
+        padding-left: 10%;
 
         @media (max-width: 900px) {
           position: static;
+          padding-left: 0px;
         }
 
         li {
           padding: 0px 1rem;
+          width: 100%;
 
-          @media (max-width: 768px) {
+          @media (max-width: 900px) {
             padding: 0px 0.25rem;
+            width: auto;
           }
         }
 
         a {
           color: #fff;
-          text-transform: uppercase;
           padding: 0.25rem;
+          font-size: 1.25rem;
           transition: 0.5s ease-in-out all;
+          font-family: "Suranna", "serif";
 
           &:hover {
-            background-color: #8ae1fc;
+            color: #ffc952;
           }
         }
       `}
