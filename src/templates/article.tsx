@@ -1,6 +1,7 @@
 import { graphql } from "gatsby";
 import Helmet from "react-helmet";
 import React from "react";
+import Link from "gatsby-link";
 import MDXRenderer from "gatsby-plugin-mdx/mdx-renderer";
 import { css } from "@emotion/core";
 
@@ -71,8 +72,8 @@ const Article = ({ data }: Props) => {
         <meta property="og:image" content={ogImageUrl} />
         <meta name="twitter:image:src" content={ogImageUrl} />
       </Helmet>
-      <a
-        href="/"
+      <Link
+        to="/"
         css={css`
           display: block;
           position: fixed;
@@ -88,7 +89,7 @@ const Article = ({ data }: Props) => {
             display: none;
           }
         `}
-      ></a>
+      ></Link>
       <main
         css={css`
           background: #fff;
@@ -99,9 +100,8 @@ const Article = ({ data }: Props) => {
           position: absolute;
           top: 50px;
           right: 10%;
-          bottom: 50px;
           left: 10%;
-          overflow-y: scroll;
+          margin-bottom: 50px;
 
           @media (max-width: 900px) {
             position: static;

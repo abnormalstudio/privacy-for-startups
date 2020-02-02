@@ -136,7 +136,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
-        trackingId: "UA-56612129-5",
+        trackingId: "UA-56612129-1",
         anonymize: true,
         respectDNT: true,
         cookieDomain: "marianserna.com"
