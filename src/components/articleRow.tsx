@@ -22,6 +22,11 @@ const ArticleRow = ({ articles }: ArticleRowProps) => (
         slug={frontmatter.slug}
         tags={frontmatter.tags}
         date={frontmatter.date}
+        thumbUrl={
+          frontmatter.thumb.childImageSharp.fixed.srcSet
+            .split("\n")[2]
+            .split(" ")[0]
+        }
       />
     ))}
   </div>

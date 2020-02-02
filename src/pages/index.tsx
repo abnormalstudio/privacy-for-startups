@@ -32,6 +32,13 @@ const IndexPage = () => (
                 tags
                 date(formatString: "MMM D, YYYY", locale: "en")
                 updated(formatString: "MMM D, YYYY", locale: "en")
+                thumb {
+                  childImageSharp {
+                    fixed(width: 600, quality: 60) {
+                      ...GatsbyImageSharpFixed
+                    }
+                  }
+                }
               }
             }
           }
@@ -40,6 +47,8 @@ const IndexPage = () => (
     `}
     render={(data: IndexPageProps) => {
       const articles = data.allMdx.edges.map(edge => edge.node);
+
+      console.log(articles);
 
       return (
         <Layout>

@@ -66,6 +66,13 @@ export const pageQuery = graphql`
             tags
             date(formatString: "MMMM D, YYYY", locale: "en")
             updated(formatString: "MMMM D, YYYY", locale: "en")
+            thumb {
+              childImageSharp {
+                fixed(width: 600, quality: 60) {
+                  ...GatsbyImageSharpFixed
+                }
+              }
+            }
           }
         }
       }

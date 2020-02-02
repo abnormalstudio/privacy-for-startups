@@ -9,11 +9,13 @@ interface Props {
   tags: string;
   date: string;
   timeToRead: number;
+  thumbUrl: string;
 }
 
-const ArticleTile = ({ title, slug, tags }: Props) => {
+const ArticleTile = ({ title, slug, tags, thumbUrl }: Props) => {
+  console.log(thumbUrl);
   return (
-    <div css={styles.outer}>
+    <div css={styles.outer} style={{ backgroundImage: gradient(title) }}>
       <div
         css={css`
           align-self: center;
@@ -50,7 +52,7 @@ const ArticleTile = ({ title, slug, tags }: Props) => {
           ))}
       </div>
 
-      <div css={styles.image} style={{ backgroundImage: gradient(title) }} />
+      <div css={styles.image} style={{ backgroundImage: `url(${thumbUrl})` }} />
       <div css={styles.content}>
         <Link
           to={`/${slug}`}
@@ -121,8 +123,8 @@ const styles = {
     left: 0;
     right: 0;
     bottom: 0;
-    /* background-image: url("https://images.unsplash.com/photo-1580565066381-e90387862d99?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80");
-    background-size: cover; */
+    background-size: cover;
+    background-position: center center;
   `,
   content: css`
     position: absolute;

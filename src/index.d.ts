@@ -13,5 +13,12 @@ interface IArticle {
     date: string;
     tags: string;
     banner: any;
+    thumb: {
+      childImageSharp: {
+        fixed: {
+          srcSet: string;
+        };
+      };
+    };
   };
 }
