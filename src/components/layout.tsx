@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { StaticQuery, graphql } from "gatsby";
+import { StaticQuery, graphql, navigate } from "gatsby";
 import { MDXProvider } from "@mdx-js/tag";
 import { Global, css } from "@emotion/core";
 import Helmet from "react-helmet";
@@ -13,18 +13,29 @@ import Search from "./search";
 
 interface Props {
   children: any;
+  isArticlePage?: boolean;
 }
 
-const Layout = ({ children }: Props) => {
+const Layout = ({ children, isArticlePage }: Props) => {
   const [showSearch, setShowSearch] = useState(false);
 
   useEffect(() => {
-    document.body.addEventListener("keyup", e => {
+    const onKeyUp = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
-        setShowSearch(false);
+        if (showSearch) {
+          setShowSearch(false);
+        } else if (isArticlePage) {
+          navigate("/");
+        }
       }
-    });
-  }, []);
+    };
+
+    document.body.addEventListener("keyup", onKeyUp);
+
+    return () => {
+      document.body.removeEventListener("keyup", onKeyUp);
+    };
+  }, [showSearch]);
 
   return (
     <StaticQuery
@@ -66,11 +77,11 @@ const Layout = ({ children }: Props) => {
           />
           <div
             css={css`
-              margin-left: 200px;
               padding: 2rem 1rem;
+              padding-left: 200px;
 
               @media (max-width: 900px) {
-                margin-left: 0px;
+                padding-left: 1rem;
               }
             `}
           >

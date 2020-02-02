@@ -86,9 +86,9 @@ const ArticleTile = ({ title, slug, tags }: Props) => {
 const styles = {
   outer: css`
     position: relative;
-    width: calc(30% - 2rem);
+    width: calc(33.3% - 4rem);
     height: 250px;
-    margin-bottom: 2rem;
+    margin: 2rem;
     color: rgba(255, 255, 255, 0.9);
 
     ::before {

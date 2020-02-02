@@ -66,7 +66,7 @@ const Article = ({ data }: Props) => {
       : data.otherArticles;
 
   return (
-    <Layout>
+    <Layout isArticlePage={true}>
       <SEO keywords={splitTags(tags)} title={title} description={excerpt} />
       <Helmet encodeSpecialCharacters={false}>
         <meta property="og:image" content={ogImageUrl} />

@@ -10,7 +10,7 @@ const ArticleRow = ({ articles }: ArticleRowProps) => (
   <div
     css={css`
       display: flex;
-      justify-content: space-around;
+      justify-content: flex-start;
       flex-wrap: wrap;
     `}
   >
