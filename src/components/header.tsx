@@ -85,6 +85,7 @@ const Header = ({ siteTitle, onSearchClick }: Props) => (
         href="https://www.linkedin.com/in/marian-serna/"
         title="LinkedIn"
         target="_blank"
+        rel="noreferrer"
       >
         <img src={LinkedInIcon} alt="LinkedIn" css={styles.icon} />
       </a>
