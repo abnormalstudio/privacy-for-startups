@@ -1,5 +1,5 @@
 require("dotenv").config({
-  path: `.env.${process.env.NODE_ENV}`
+  path: `.env.${process.env.NODE_ENV}`,
 });
 
 const articlesQuery = `{
@@ -33,7 +33,7 @@ const tagsQuery = `{
   }
 }`;
 
-const splitTags = tags => tags.split(",").map(tag => tag.trim());
+const splitTags = (tags) => tags.split(",").map((tag) => tag.trim());
 
 const queries = [
   {
@@ -47,8 +47,8 @@ const queries = [
         date: node.frontmatter.date,
         slug: node.frontmatter.slug,
         timeToRead: node.timeToRead,
-        excerpt: node.excerpt
-      }))
+        excerpt: node.excerpt,
+      })),
   },
   {
     query: tagsQuery,
@@ -70,13 +70,13 @@ const queries = [
       /*
       Produce: [{tag: 'tag1', numArticles: 5}, {tag: 'tag2', numArticles: 1}]
       */
-      return Object.keys(tagHash).map(tag => ({
+      return Object.keys(tagHash).map((tag) => ({
         tag,
         objectID: tag,
-        numArticles: tagHash[tag]
+        numArticles: tagHash[tag],
       }));
-    }
-  }
+    },
+  },
 ];
 
 module.exports = {
@@ -85,7 +85,7 @@ module.exports = {
     title: "Marian Serna",
     description:
       "Marian writes about privacy, technology and contract law in the world of tech startups.",
-    author: "Marian Serna"
+    author: "Marian Serna",
   },
   plugins: [
     "gatsby-plugin-react-helmet",
@@ -94,22 +94,22 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
-        path: `${__dirname}/src/images`
-      }
+        path: `${__dirname}/src/images`,
+      },
     },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `articles`,
-        path: `${__dirname}/content/articles`
-      }
+        path: `${__dirname}/content/articles`,
+      },
     },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `snippets`,
-        path: `${__dirname}/content/snippets`
-      }
+        path: `${__dirname}/content/snippets`,
+      },
     },
     "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",
@@ -118,8 +118,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-favicon`,
       options: {
-        logo: "./src/images/favicon.png"
-      }
+        logo: "./src/images/favicon.png",
+      },
     },
     {
       resolve: `gatsby-plugin-manifest`,
@@ -130,8 +130,8 @@ module.exports = {
         background_color: "#663399",
         theme_color: "#663399",
         display: "minimal-ui",
-        icon: "src/images/icon-512x512.png"
-      }
+        icon: "src/images/icon-512x512.png",
+      },
     },
     {
       resolve: `gatsby-plugin-google-analytics`,
@@ -139,8 +139,8 @@ module.exports = {
         trackingId: "UA-56612129-1",
         anonymize: true,
         respectDNT: true,
-        cookieDomain: "marianserna.com"
-      }
+        cookieDomain: "marianserna.com",
+      },
     },
     "gatsby-plugin-typescript",
     {
@@ -151,11 +151,11 @@ module.exports = {
             resolve: "gatsby-remark-images",
             options: {
               maxWidth: 1024,
-              sizeByPixelDensity: true
-            }
-          }
-        ]
-      }
+              sizeByPixelDensity: true,
+            },
+          },
+        ],
+      },
     },
     {
       resolve: `gatsby-plugin-feed`,
@@ -184,7 +184,7 @@ module.exports = {
                   date: node.frontmatter.date,
                   url: `${site.siteMetadata.siteUrl}/${node.frontmatter.slug}`,
                   guid: `${site.siteMetadata.siteUrl}/${node.frontmatter.slug}`,
-                  categories: splitTags(node.frontmatter.tags)
+                  categories: splitTags(node.frontmatter.tags),
                 };
               });
             },
@@ -212,19 +212,20 @@ module.exports = {
             }
           `,
             output: "/rss.xml",
-            title: "Marian Serna RSS Feed"
-          }
-        ]
-      }
+            title: "Marian Serna RSS Feed",
+          },
+        ],
+      },
     },
     {
       resolve: `gatsby-plugin-algolia`,
       options: {
         appId: process.env.ALGOLIA_APP_ID,
         apiKey: process.env.ALGOLIA_API_KEY,
-        queries
-      }
+        indexName: "articles",
+        queries,
+      },
     },
-    "gatsby-plugin-netlify"
-  ]
+    "gatsby-plugin-netlify",
+  ],
 };

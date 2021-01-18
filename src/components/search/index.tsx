@@ -3,7 +3,7 @@ import {
   InstantSearch,
   SearchBox,
   PoweredBy,
-  Index
+  Index,
 } from "react-instantsearch-dom";
 import { css } from "@emotion/core";
 import ArticleHits from "./articleHits";
@@ -17,7 +17,7 @@ interface Props {
 
 const Search: React.FunctionComponent<Props> = ({
   showSearch,
-  onCloseClick
+  onCloseClick,
 }) => {
   if (!showSearch) {
     return null;
@@ -35,8 +35,8 @@ const Search: React.FunctionComponent<Props> = ({
       `}
     >
       <InstantSearch
-        appId="8B3R1BS4EM"
-        apiKey="c787840874e32337ed14bb37de124a67"
+        appId="QU0FH5SFOT"
+        apiKey="48b8b57066e39f79cfc55d4206c42fa5"
         indexName="articles"
       >
         <div
