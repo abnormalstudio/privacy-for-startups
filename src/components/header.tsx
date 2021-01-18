@@ -3,7 +3,7 @@ import React from "react";
 import { css } from "@emotion/core";
 import SearchIcon from "../images/icons/search.svg";
 import LinkedInIcon from "../images/icons/linkedin.svg";
-import EmailIcon from "../images/icons/email.svg";
+// import EmailIcon from "../images/icons/email.svg";
 
 interface Props {
   siteTitle: string;
@@ -74,13 +74,13 @@ const Header = ({ siteTitle, onSearchClick }: Props) => (
         }
       `}
     >
-      <a
+      {/* <a
         href="mailto:privacyforstartups@gmail.com"
         title="Email"
         target="_blank"
       >
         <img src={EmailIcon} alt="Email" css={styles.icon} />
-      </a>
+      </a> */}
       <a
         href="https://www.linkedin.com/in/marian-serna/"
         title="LinkedIn"
@@ -106,7 +106,7 @@ const Header = ({ siteTitle, onSearchClick }: Props) => (
 );
 
 Header.defaultProps = {
-  siteTitle: ""
+  siteTitle: "",
 };
 
 const styles = {
@@ -115,7 +115,7 @@ const styles = {
     height: 1.5rem;
     margin: 0.5rem;
     display: inline-block;
-  `
+  `,
 };
 
 export default Header;
