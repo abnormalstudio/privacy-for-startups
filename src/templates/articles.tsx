@@ -1,7 +1,7 @@
 import { graphql } from "gatsby";
 import React from "react";
 import Link from "gatsby-link";
-import { css } from "@emotion/core";
+import { css } from "@emotion/react";
 import { Layout, SEO, ArticleRow, H1Line, Single } from "$components";
 
 interface IArticleNode {
@@ -29,7 +29,7 @@ const Articles = ({ data, pageContext: { page, prevUrl, nextUrl } }: Props) => {
 
       <H1Line>Articles {page > 1 && <span>page {page}</span>}</H1Line>
 
-      <ArticleRow articles={data.allMdx.edges.map(edge => edge.node)} />
+      <ArticleRow articles={data.allMdx.edges.map((edge) => edge.node)} />
 
       {prevUrl || nextUrl ? (
         <div

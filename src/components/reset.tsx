@@ -1,5 +1,5 @@
-import React from 'react';
-import { Global, css } from '@emotion/core';
+import React from "react";
+import { Global, css } from "@emotion/react";
 
 export default function Reset() {
   return (
@@ -126,7 +126,7 @@ export default function Reset() {
         blockquote:after,
         q:before,
         q:after {
-          content: '';
+          content: "";
           content: none;
         }
         table {

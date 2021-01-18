@@ -1,14 +1,20 @@
 import React from "react";
+import algoliasearch from "algoliasearch/lite";
 import {
   InstantSearch,
   SearchBox,
   PoweredBy,
   Index,
 } from "react-instantsearch-dom";
-import { css } from "@emotion/core";
+import { css } from "@emotion/react";
 import ArticleHits from "./articleHits";
 import TagHits from "./tagHits";
 import CloseIcon from "../../images/icons/close.svg";
+
+const searchClient = algoliasearch(
+  "QU0FH5SFOT",
+  "48b8b57066e39f79cfc55d4206c42fa5"
+);
 
 interface Props {
   showSearch: boolean;
@@ -34,11 +40,7 @@ const Search: React.FunctionComponent<Props> = ({
         }
       `}
     >
-      <InstantSearch
-        appId="QU0FH5SFOT"
-        apiKey="48b8b57066e39f79cfc55d4206c42fa5"
-        indexName="articles"
-      >
+      <InstantSearch searchClient={searchClient} indexName="articles">
         <div
           css={css`
             position: absolute;
@@ -125,12 +127,16 @@ const Search: React.FunctionComponent<Props> = ({
               }
             `}
           >
-            <Index indexName="tags">
-              <TagHits />
-            </Index>
-            <Index indexName="articles">
-              <ArticleHits />
-            </Index>
+            <div className="ais-MultiIndex__root">
+              <Index indexName="tags">
+                <TagHits />
+              </Index>
+            </div>
+            <div className="ais-MultiIndex__root">
+              <Index indexName="articles">
+                <ArticleHits />
+              </Index>
+            </div>
           </div>
           <PoweredBy />
         </div>

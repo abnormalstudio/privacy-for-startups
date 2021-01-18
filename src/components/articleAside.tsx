@@ -1,5 +1,5 @@
 import React from "react";
-import { css } from "@emotion/core";
+import { css } from "@emotion/react";
 import ArticleRelated from "./articleRelated";
 import ArticleAbout from "./articleAbout";
 
@@ -35,7 +35,7 @@ const styles = {
       padding: 0px 0.5rem;
       margin-top: 2rem;
     }
-  `
+  `,
 };
 
 export default ArticleAside;

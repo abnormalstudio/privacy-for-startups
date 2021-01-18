@@ -46,9 +46,7 @@ const IndexPage = () => (
       }
     `}
     render={(data: IndexPageProps) => {
-      const articles = data.allMdx.edges.map(edge => edge.node);
-
-      console.log(articles);
+      const articles = data.allMdx.edges.map((edge) => edge.node);
 
       return (
         <Layout>

@@ -21,7 +21,7 @@ const ArticleAbout = () => (
         }
       }
     `}
-    render={data => (
+    render={(data) => (
       <div>
         <H3Line>About Me</H3Line>
         <Image fluid={data.file.childImageSharp.fluid} alt="Marian Serna" />

@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "gatsby-image";
-import { css } from "@emotion/core";
+import { css } from "@emotion/react";
 import { StaticQuery, graphql } from "gatsby";
 import MDXRenderer from "gatsby-plugin-mdx/mdx-renderer";
 import { Layout, SEO, H1Line, Single } from "$components";
@@ -21,7 +21,7 @@ const About = () => (
         }
       }
     `}
-    render={data => (
+    render={(data) => (
       <Layout>
         <SEO title="About me" />
 

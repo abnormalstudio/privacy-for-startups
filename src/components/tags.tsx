@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "@emotion/styled";
 import Link from "gatsby-link";
-import { css } from "@emotion/core";
+import { css } from "@emotion/react";
 import { splitTags } from "$lib";
 
 interface Props {
@@ -12,7 +12,7 @@ const Tags = ({ tags }: Props) => (
   <TagList>
     {splitTags(tags)
       .sort()
-      .map(tag => (
+      .map((tag) => (
         <TagItem key={tag}>
           <Link
             to={`/tags/${tag}`}

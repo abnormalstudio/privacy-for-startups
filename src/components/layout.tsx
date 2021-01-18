@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { StaticQuery, graphql, navigate } from "gatsby";
 import { MDXProvider } from "@mdx-js/tag";
-import { Global, css } from "@emotion/core";
+import { Global, css } from "@emotion/react";
 import Helmet from "react-helmet";
 import "prismjs/themes/prism-okaidia.css";
 
@@ -48,7 +48,7 @@ const Layout = ({ children, isArticlePage }: Props) => {
           }
         }
       `}
-      render={data => (
+      render={(data) => (
         <>
           <Reset />
           <Global styles={styles.global} />
@@ -207,7 +207,7 @@ const styles = {
     .token.comment {
       color: #879aae;
     }
-  `
+  `,
 };
 
 export default Layout;

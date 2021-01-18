@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "gatsby-link";
-import { css } from "@emotion/core";
+import { css } from "@emotion/react";
 import { Highlight } from "react-instantsearch-dom";
 import { parse, format } from "date-fns";
 import { Tags } from "$components";
@@ -28,7 +28,10 @@ const ArticleHit: React.FunctionComponent<ArticleHitProps> = ({ hit }) => (
         margin-bottom: 0.75rem;
       `}
     >
-      {format(parse(hit.date), "MMM d, YYYY")}
+      {format(
+        parse(hit.date.substr(0, 10), "yyyy-MM-dd", new Date()),
+        "MMM d, yyyy"
+      )}
     </div>
     <Tags tags={hit.tags.join(", ")} />
     <p>

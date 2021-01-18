@@ -1,5 +1,5 @@
 import React from "react";
-import { css } from "@emotion/core";
+import { css } from "@emotion/react";
 import { connectHits } from "react-instantsearch-dom";
 import ArticleHit from "./articleHit";
 

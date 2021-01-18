@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "gatsby-link";
-import { css } from "@emotion/core";
+import { css } from "@emotion/react";
 import { splitTags, gradient } from "$lib";
 
 interface Props {
@@ -13,7 +13,6 @@ interface Props {
 }
 
 const ArticleTile = ({ title, slug, tags, thumbUrl }: Props) => {
-  console.log(thumbUrl);
   return (
     <div css={styles.outer} style={{ backgroundImage: gradient(title) }}>
       <div
@@ -32,7 +31,7 @@ const ArticleTile = ({ title, slug, tags, thumbUrl }: Props) => {
       >
         {splitTags(tags)
           .slice(0, 2)
-          .map(tag => (
+          .map((tag) => (
             <span
               key={tag}
               css={css`
@@ -134,7 +133,7 @@ const styles = {
     background: transparent;
     z-index: 2;
     text-align: center;
-  `
+  `,
 };
 
 export default ArticleTile;

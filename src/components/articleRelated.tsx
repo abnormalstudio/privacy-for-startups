@@ -1,5 +1,5 @@
 import React from "react";
-import { css } from "@emotion/core";
+import { css } from "@emotion/react";
 import Link from "gatsby-link";
 import { H3Line } from "$components";
 
@@ -15,7 +15,7 @@ const ArticleRelated = ({ articles }: Props) => (
         margin-bottom: 2rem;
       `}
     >
-      {articles.map(article => {
+      {articles.map((article) => {
         const thumbUrl = article.frontmatter.thumb.childImageSharp.fixed.srcSet
           .split("\n")[2]
           .split(" ")[0];

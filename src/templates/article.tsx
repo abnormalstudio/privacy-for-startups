@@ -3,7 +3,7 @@ import Helmet from "react-helmet";
 import React from "react";
 import Link from "gatsby-link";
 import MDXRenderer from "gatsby-plugin-mdx/mdx-renderer";
-import { css } from "@emotion/core";
+import { css } from "@emotion/react";
 
 import { Layout, Tags, SEO, ArticleAside, H1Line } from "$components";
 import { splitTags } from "$lib";
@@ -40,7 +40,7 @@ interface Props {
 
 const buildURL = (url: string, obj: object) => {
   const query = Object.entries(obj)
-    .map(pair => pair.map(encodeURIComponent).join("="))
+    .map((pair) => pair.map(encodeURIComponent).join("="))
     .join("&");
 
   return `${url}?${query}`;
@@ -56,7 +56,7 @@ const Article = ({ data }: Props) => {
       author: "Marian Serna",
       website: "marianserna.com",
       title,
-      image: "https://abnormalstudio.s3.amazonaws.com/marian-social.jpg"
+      image: "https://abnormalstudio.s3.amazonaws.com/marian-social.jpg",
     }
   );
 
@@ -192,7 +192,7 @@ const Article = ({ data }: Props) => {
           </div>
         </article>
 
-        <ArticleAside articles={asideArticles.edges.map(edge => edge.node)} />
+        <ArticleAside articles={asideArticles.edges.map((edge) => edge.node)} />
       </main>
     </Layout>
   );

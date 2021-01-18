@@ -1,6 +1,6 @@
 import { Link } from "gatsby";
 import React from "react";
-import { css } from "@emotion/core";
+import { css } from "@emotion/react";
 import SearchIcon from "../images/icons/search.svg";
 import LinkedInIcon from "../images/icons/linkedin.svg";
 // import EmailIcon from "../images/icons/email.svg";
